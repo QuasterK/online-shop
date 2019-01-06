@@ -32,8 +32,8 @@ router.post('/add', (req, res) => {
                     discount: req.body.discount,
                     size: req.body.size,
                     brand: req.body.brand,
-                    tags: req.body.tags,
-                })
+                    color: req.body.color,
+                });
 
                 newItem
                     .save()
