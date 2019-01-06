@@ -6,6 +6,10 @@ const ItemSchema = new Schema({
         type: String,
         required: true
     },
+    description:{
+      type: String,
+      required:true
+    },
     category: {
         type:String,
         required: true,
@@ -26,10 +30,11 @@ const ItemSchema = new Schema({
         type: String,
         required: true,
     },
-    tags: {
-        type: []
-    },
+    color:{
+        type: String,
+        required: true,
+    }
 
 });
 
-module.exports = Item => mongoose.model('Item', ItemSchema);
+module.exports = mongoose.model('item', ItemSchema);
