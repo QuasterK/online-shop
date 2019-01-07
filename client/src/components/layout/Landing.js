@@ -1,31 +1,19 @@
 import React, {Component} from 'react';
-import axios from 'axios';
-import Item from '../items/Items'
+import {connect} from 'react-redux';
+import Item from '../items/Items';
+import { getItems } from '../../actions/itemsAction';
 
 class Landing extends Component{
-    constructor(props){
-        super(props);
 
-        this.state ={
-            items: []
-        }
-    }
     componentDidMount(){
-     axios({
-         method:'get',
-         url:'api/item/get'
-     })
-         .then(res => this.setState({
-             items: res.data
-         }))
-         .then(() => console.log(this.state.items))
-         .catch(err => console.log(err))
+        this.props.getItems();
     }
     render(){
+        const {items} = this.props.item;
 
         const showItems = (
             <div>
-                {this.state.items.map(item => {
+                {items.map(item => {
                     return <Item key={item._id} name={item.name}/>
                 })}
             </div>
@@ -37,4 +25,7 @@ class Landing extends Component{
     }
 }
 
-export default Landing;
+const mapStateToProps = state => ({
+    item: state.item
+});
+export default connect(mapStateToProps, {getItems} )(Landing);
