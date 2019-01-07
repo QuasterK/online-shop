@@ -5,12 +5,14 @@ const router = express.Router();
 
 const Item = require('../../models/Item');
 
-// @route   GET api/item/test
-// @desc    testing item route
+// @route   GET api/item/get-all
+// @desc    getting all items
 // @access  Public
 
-router.get('/test', function (req, res) {
-    res.send('testing GET request to homepage');
+router.get('/get', function (req, res) {
+    Item.find()
+        .then(item => res.json(item))
+        .catch(err => res.status(404).json({noitem: 'no items for sale'}))
 });
 
 
