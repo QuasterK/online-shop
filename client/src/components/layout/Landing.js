@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import Item from '../items/Items'
 
 class Landing extends Component{
     constructor(props){
@@ -25,7 +26,7 @@ class Landing extends Component{
         const showItems = (
             <div>
                 {this.state.items.map(item => {
-                    return <div key={item._id}>{item.name}</div>
+                    return <Item key={item._id} name={item.name}/>
                 })}
             </div>
         );
