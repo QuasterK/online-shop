@@ -1,31 +1,21 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import Item from '../items/Items';
-import { getItems } from '../../actions/itemsAction';
+import Items from '../itemList/Items';
+import Filters from '../filters/Filters'
 
 class Landing extends Component{
 
-    componentDidMount(){
-        this.props.getItems();
-    }
     render(){
-        const {items} = this.props.item;
-
-        const showItems = (
-            <div>
-                {items.map(item => {
-                    return <Item key={item._id} name={item.name}/>
-                })}
-            </div>
-        );
-
         return <div className='container'>
-            {showItems}
+            <div className='row'>
+                <div className='col col-md-3 d-none d-md-block'>
+                    <Filters/>
+                </div>
+                <div className='col-md-9'>
+                    <Items/>
+                </div>
+            </div>
         </div>
     }
 }
 
-const mapStateToProps = state => ({
-    item: state.item
-});
-export default connect(mapStateToProps, {getItems} )(Landing);
+export default Landing;

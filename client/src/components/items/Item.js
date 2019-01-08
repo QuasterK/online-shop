@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './Items.scss';
 class Item extends Component{
     constructor(props){
         super(props);

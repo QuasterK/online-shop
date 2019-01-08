@@ -15,11 +15,9 @@ class App extends Component {
         <Provider store={store}>
             <Router>
               <div className="App">
-                <header className="App-header">
                   <Navbar/>
                   <Route exact path="/" component={Landing} />
                   <Footer/>
-                </header>
               </div>
             </Router>
         </Provider>
