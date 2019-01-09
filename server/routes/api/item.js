@@ -15,7 +15,6 @@ router.get('/get', function (req, res) {
         .catch(err => res.status(404).json({noitem: 'no items for sale'}))
 });
 
-
 // @route   POST api/item/add
 // @desc    add new item to db
 // @access  Public

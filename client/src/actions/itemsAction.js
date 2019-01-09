@@ -1,4 +1,4 @@
-import {GET_ITEMS} from './types';
+import {GET_ITEMS, GET_ITEMS_TO_SHOW} from './types';
 import axios from "axios/index";
 
 //get all items
@@ -20,4 +20,11 @@ export const getItems = () => dispatch => {
                 payload: err
             })
         )
+};
+
+export const getItemsToShow = itemsData => dispatch => {
+    dispatch({
+        type: GET_ITEMS_TO_SHOW,
+        payload: itemsData
+    })
 };

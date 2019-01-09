@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import 'rc-slider/assets/index.css';
-import Slider, { Range } from 'rc-slider';
+import { Range } from 'rc-slider';
 
 
 class Prices extends Component{
@@ -25,10 +25,10 @@ class Prices extends Component{
                     <Range min={0} max={200} step={10} defaultValue={[0, 200]}  onChange={this.onRangeChange}/>
                 </div>
                 <div>
-                    <span>Min. price : </span> <span>{this.state.min}</span>
+                    <span>Min. price : </span> <span>{this.state.min} $</span>
                 </div>
                 <div>
-                    <span>Max. price : </span> <span>{this.state.max}</span>
+                    <span>Max. price : </span> <span>{this.state.max} $</span>
                 </div>
             </div>
         )

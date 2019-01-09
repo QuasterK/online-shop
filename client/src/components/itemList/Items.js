@@ -1,19 +1,21 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Item from '../items/Item';
-import { getItems } from '../../actions/itemsAction';
+import { getItems} from '../../actions/itemsAction';
 
 class Landing extends Component{
 
     componentDidMount(){
-        this.props.getItems();
+        const {getItems} = this.props;
+        getItems();
     }
+
     render(){
-        const {items} = this.props.item;
+        const {itemsToShow} = this.props.item;
 
         const showItems = (
             <div>
-                {items.map(item => {
+                {itemsToShow.map(item => {
                     return <Item key={item._id} name={item.name}/>
                 })}
             </div>
@@ -26,6 +28,7 @@ class Landing extends Component{
 }
 
 const mapStateToProps = state => ({
-    item: state.item
+    item: state.item,
+    filters: state.filters
 });
 export default connect(mapStateToProps, {getItems} )(Landing);

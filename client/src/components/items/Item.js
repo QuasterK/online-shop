@@ -9,9 +9,9 @@ class Item extends Component{
     }
 
     render(){
-        const imageOne = require('../../images/' + this.state.img + '/1.jpg')
+        const image = require('../../images/' + this.state.img + '/1.jpg');
         return (
-            <div ><img width='200px' height='200px' src={imageOne} alt="boohoo" className="img-responsive"/></div>
+            <div ><img width='200px' height='200px' src={image} alt="boohoo" className="img-responsive"/></div>
         )
     }
 }

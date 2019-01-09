@@ -16,22 +16,22 @@ class Categories extends Component{
                 </div>
                 <div className="row">
                     <div className="col">
-                        watches
+                        Usual
                     </div>
                 </div>
                 <div className="row">
                     <div className="col">
-                        books
+                        Military
                     </div>
                 </div>
                 <div className="row">
                     <div className="col">
-                        furniture
+                        Minimalist
                     </div>
                 </div>
                 <div className="row">
                     <div className="col">
-                        electronics
+                        Best sellers
                     </div>
                 </div>
             </div>

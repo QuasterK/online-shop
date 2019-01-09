@@ -1,0 +1,32 @@
+.color{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  margin: 3px;
+}
+.color:hover{
+  width: 32px;
+  height: 32px;
+}
+.yellow{
+  background-color: yellow;
+}
+.black{
+  background-color: black;
+}
+.black:hover{
+  background-color: lighten(black,20%);
+}
+.red{
+  background-color: red;
+}
+.green{
+  background-color: green;
+}
+.chosen{
+  width: 35px;
+  height: 35px;
+}
+
