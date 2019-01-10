@@ -28,7 +28,6 @@ export default  (state = initialState, action) => {
                 }
             };
         case GET_NEXT_TO_FILTER:
-            console.log('odpalono')
             return {
                 ...state,
                 filter: {

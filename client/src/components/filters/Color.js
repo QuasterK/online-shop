@@ -24,7 +24,7 @@ class Colors extends Component{
             const newArray = array.filter((value) => {
                 return value !== e.target.id
             });
-            deleteFromFilter('color', newArray)
+            deleteFromFilter('color', newArray);
             deleteFilter('colors', newArray);
         }
     };
