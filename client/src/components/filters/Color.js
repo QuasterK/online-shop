@@ -2,24 +2,31 @@ import React, {Component} from 'react';
 import classnames from 'classnames';
 import './Colors.scss';
 import {connect} from 'react-redux';
-import {getColor, deleteColor} from "../../actions/filtersAction";
+import {getFilter, deleteFilter, getToFilter, getNextToFilter, deleteFromFilter} from "../../actions/filtersAction";
 
 class Colors extends Component{
 
     chooseColor = (e) => {
-        const {colors, getColor, deleteColor} = this.props;
+        const {getToFilter, deleteFilter, filters, getNextToFilter, deleteFromFilter, getFilter} = this.props;
 
-        if(colors.includes(e.target.id)){
-            const array = colors;
+        if (filters.filter.color === undefined) {
+            getToFilter('color', e.target.id);
+            getFilter('colors', e.target.id)
+
+        }
+        if (filters.filter.color !== undefined && !filters.filter.color.includes(e.target.id)) {
+            getNextToFilter('color', e.target.id);
+            getFilter('colors', e.target.id)
+        }
+
+        if (filters.filter.color !== undefined && filters.filter.color.includes(e.target.id)) {
+            const array = filters.filter.color;
             const newArray = array.filter((value) => {
                 return value !== e.target.id
             });
-            deleteColor(newArray);
+            deleteFromFilter('color', newArray)
+            deleteFilter('colors', newArray);
         }
-        if(!colors.includes(e.target.id)) {
-            getColor(e.target.id);
-        }
-
     };
 
     render(){
@@ -37,9 +44,10 @@ class Colors extends Component{
 
 const mapStateToProps = state =>{
     return {
+        filters: state.filters,
         colors: state.filters.colors
 
     }
 }
 
-export default connect(mapStateToProps, {getColor, deleteColor})(Colors);
+export default connect(mapStateToProps, {getFilter, deleteFilter, getToFilter, getNextToFilter, deleteFromFilter})(Colors);

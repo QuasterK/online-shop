@@ -4,7 +4,8 @@ import Brands from "./Brands";
 import Colors from "./Color";
 import Prices from "./Price";
 import Sizes from "./Size";
-import {getItemsToShow } from '../../actions/itemsAction';
+import {getItemsToShow} from '../../actions/itemsAction';
+
 import {connect} from 'react-redux'
 
 class Filter extends Component{
@@ -13,29 +14,57 @@ class Filter extends Component{
         e.preventDefault();
         const {items} = this.props.items;
         const {getItemsToShow, filters} = this.props;
-        let colors = [];
-        filters.colors.length >= 1 ? colors = filters.colors : colors = [];
-        let category = [];
-        filters.category.length >= 1 ? category = filters.colors : category = [];
-        let price = [];
-        filters.price.length >= 1 ? price = filters.colors : price = [];
-        let size = [];
-        filters.size.length >= 1 ? size = filters.colors : size = [];
-        let brands = [];
-        filters.brands.length >= 1 ? brands = filters.colors : brands = [];
+        console.log(filters.filter);
 
-        let newArrayOfItems = items;
-
-        let filtered = newArrayOfItems.filter((item) => {
-            return (colors.indexOf(item.color) >= 0
-                || category.indexOf(item.category) >= 0
-                || size.indexOf(item.size) >= 0
-                || brands.indexOf(item.brand) >= 0) ;
+        const filter = filters.filter;
+        const itemsToDisplay = items.filter(item =>{
+            for (let key in filter) {
+                if (filter[key].indexOf(item[key]) === -1)
+                    return false;
+            }
+            return true;
         });
-        // console.log(itemsToShow)
-        // console.log(filtered)
-        getItemsToShow(filtered);
-    }
+
+        console.log(itemsToDisplay)
+        getItemsToShow(itemsToDisplay)
+
+        //////////
+        // var filter = {
+        //     address: ['ENGLAND', 'Poland'],
+        //     name: ['Mark', 'TOM'],
+        // };
+        // var users = [{
+        //     name: 'John',
+        //     email: 'johnson@mail.com',
+        //     age: 25,
+        //     address: 'USA'
+        //     },
+        //     {
+        //         name: 'Tom',
+        //         email: 'tom@mail.com',
+        //         age: 35,
+        //         address: 'England'
+        //     },
+        //     {
+        //         name: 'Mark',
+        //         email: 'mark@mail.com',
+        //         age: 28,
+        //         address: 'England'
+        //     }
+        // ];
+        //
+        //
+        // users= users.filter(function(item) {
+        //     for (let key in filter) {
+        //         if (filter[key].indexOf(item[key].toUpperCase()) === -1)
+        //             return false;
+        //     }
+        //     return true;
+        // });
+        //
+        // console.log(users)
+        /////////////////////////////
+    };
     render() {
         return <div className='container'>
             <Categories/>
@@ -44,7 +73,7 @@ class Filter extends Component{
             <Colors/>
             <Brands/>
             <Sizes/>
-            <button onClick={this.sendFilters}>Filter</button>
+            <button onClick={(e) => this.sendFilters(e)}>Filter</button>
         </div>
     }
 }

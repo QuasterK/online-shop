@@ -21,7 +21,7 @@ export const getItems = () => dispatch => {
             })
         )
 };
-
+//get items that have to be displayed on screen
 export const getItemsToShow = itemsData => dispatch => {
     dispatch({
         type: GET_ITEMS_TO_SHOW,

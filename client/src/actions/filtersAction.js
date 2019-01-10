@@ -1,25 +1,45 @@
-import {GET_COLOR} from "../actions/types";
-import {DELETE_COLOR} from "../actions/types";
-// eslint-disable-next-line
-import {GET_CATEGORY} from "../actions/types";
-// eslint-disable-next-line
-import {GET_BRAND} from "../actions/types";
-// eslint-disable-next-line
-import {GET_PRICE} from "../actions/types";
-// eslint-disable-next-line
-import {GET_SIZE} from "../actions/types";
+import {GET_FILTER, DELETE_FILTER, GET_TO_FILTER, GET_NEXT_TO_FILTER, DELETE_FROM_FILTER} from "../actions/types";
 
-export const getColor = color => dispatch => {
+
+export const getFilter = (filterName, value) => dispatch => {
+    dispatch({
+        type: GET_FILTER,
+        filterName: filterName,
+        payload: value
+    })
+};
+
+export const getToFilter = (filterName, value) => dispatch => {
   dispatch({
-      type: GET_COLOR,
-      payload: color
+      type: GET_TO_FILTER,
+      filterName: filterName,
+      payload: value
       }
   )
 };
 
-export const deleteColor = color => dispatch => {
+export const getNextToFilter = (filterName, value) => dispatch => {
     dispatch({
-        type: DELETE_COLOR,
-        payload: color
+            type: GET_NEXT_TO_FILTER,
+            filterName: filterName,
+            payload: value
+        }
+    )
+};
+
+export const deleteFromFilter = (filterName, array) => dispatch => {
+    dispatch({
+        type: DELETE_FROM_FILTER,
+        filterName: filterName,
+        payload: array
     })
 };
+
+export const deleteFilter = (filterName, value) => dispatch => {
+    dispatch({
+        type: DELETE_FILTER,
+        filterName:filterName,
+        payload: value
+    })
+};
+

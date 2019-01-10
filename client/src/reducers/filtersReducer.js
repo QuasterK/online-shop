@@ -1,12 +1,5 @@
-import {DELETE_COLOR, GET_COLOR} from "../actions/types";
-// eslint-disable-next-line
-import {GET_CATEGORY} from "../actions/types";
-// eslint-disable-next-line
-import {GET_BRAND} from "../actions/types";
-// eslint-disable-next-line
-import {GET_PRICE} from "../actions/types";
-// eslint-disable-next-line
-import {GET_SIZE} from "../actions/types";
+import {GET_FILTER, DELETE_FILTER, GET_TO_FILTER, GET_NEXT_TO_FILTER,DELETE_FROM_FILTER} from "../actions/types";
+
 
 const initialState = {
     category: [],
@@ -14,22 +7,49 @@ const initialState = {
     colors: [],
     size:[],
     brands: [],
+    filter:{}
 
 
 };
 
 export default  (state = initialState, action) => {
     switch (action.type){
-        case GET_COLOR:
+        case GET_FILTER:
             return {
                 ...state,
-                colors: [...state.colors, action.payload]
+                [action.filterName]: [...state[action.filterName], action.payload]
             };
-        case DELETE_COLOR:
+        case GET_TO_FILTER:
             return {
                 ...state,
-                colors: action.payload
+                filter: {
+                    ...state.filter,
+                    [action.filterName]: [action.payload]
+                }
             };
+        case GET_NEXT_TO_FILTER:
+            console.log('odpalono')
+            return {
+                ...state,
+                filter: {
+                    ...state.filter,
+                    [action.filterName]: [...state.filter[action.filterName], action.payload]
+                }
+            };
+        case DELETE_FROM_FILTER:
+            return {
+                ...state,
+                filter: {
+                    ...state.filter,
+                    [action.filterName]: action.payload
+                }
+            };
+        case DELETE_FILTER:
+            return {
+                ...state,
+                [action.filterName]:  action.payload
+            };
+
         default:
             return state
     }
