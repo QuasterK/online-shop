@@ -20,17 +20,18 @@ class Filter extends Component{
 
         for(let key in filter){
             if(filter[key].length > 0){
-                console.log(filter[key])
                 newFilter[key] = filter[key]
             }
         }
-
+        // eslint-disable-next-line
         const itemsToDisplay = items.filter(item =>{
-            for (let key in newFilter) {
-                if (newFilter[key].indexOf(item[key]) === -1)
-                    return false;
+            if(item.price >= filters.price[0] && item.price <= filters.price[1]) {
+                for (let key in newFilter) {
+                    if (newFilter[key].indexOf(item[key]) === -1)
+                        return false;
+                }
+                return true;
             }
-            return true;
         });
 
         getItemsToShow(itemsToDisplay)
@@ -38,8 +39,8 @@ class Filter extends Component{
 
     render() {
         return <div className='container'>
-            <Categories/>
             <p>Filter by:</p>
+            <Categories/>
             <Prices/>
             <Colors/>
             <Brands/>

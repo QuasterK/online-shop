@@ -1,9 +1,14 @@
-import {GET_FILTER, DELETE_FILTER, GET_TO_FILTER, GET_NEXT_TO_FILTER,DELETE_FROM_FILTER} from "../actions/types";
+import {GET_FILTER,
+    DELETE_FILTER,
+    GET_TO_FILTER,
+    GET_NEXT_TO_FILTER,
+    DELETE_FROM_FILTER,
+    CHANGE_PRICE} from "../actions/types";
 
 
 const initialState = {
     category: [],
-    price: [],
+    price: [0, 200],
     colors: [],
     size:[],
     brands: [],
@@ -48,7 +53,11 @@ export default  (state = initialState, action) => {
                 ...state,
                 [action.filterName]:  action.payload
             };
-
+        case CHANGE_PRICE:
+            return {
+                ...state,
+                price:  action.payload,
+            };
         default:
             return state
     }

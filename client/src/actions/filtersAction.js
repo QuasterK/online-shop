@@ -1,4 +1,11 @@
-import {GET_FILTER, DELETE_FILTER, GET_TO_FILTER, GET_NEXT_TO_FILTER, DELETE_FROM_FILTER} from "../actions/types";
+import {
+    GET_FILTER,
+    DELETE_FILTER,
+    GET_TO_FILTER,
+    GET_NEXT_TO_FILTER,
+    DELETE_FROM_FILTER,
+    CHANGE_PRICE
+} from "../actions/types";
 
 
 export const getFilter = (filterName, value) => dispatch => {
@@ -43,3 +50,9 @@ export const deleteFilter = (filterName, value) => dispatch => {
     })
 };
 
+export const changePrice =  price => dispatch => {
+    dispatch({
+        type: CHANGE_PRICE,
+        payload: price
+    })
+};

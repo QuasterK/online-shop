@@ -7,3 +7,5 @@ export const GET_TO_FILTER = 'GET_TO_FILTER';
 export const GET_NEXT_TO_FILTER = 'GET_NEXT_TO_FILTER';
 export const DELETE_FROM_FILTER = 'DELETE_FROM_FILTER';
 
+export const CHANGE_PRICE = 'CHANGE_PRICE';
+
