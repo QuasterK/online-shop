@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
+const passport = require('passport');
 const item = require('./routes/api/item');
 const users = require('./routes/api/user');
 
@@ -15,6 +15,12 @@ app.use(bodyParser.json());
 //use routes
 app.use('/api/item', item);
 app.use('/api/users', users);
+
+//use passport jwt authentication strategy
+
+app.use(passport.initialize());
+//passport config
+require('./config/passport')(passport);
 
 //connect to DB
 const mongodb = require('./config/keys').mongodb;

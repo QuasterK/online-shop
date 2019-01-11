@@ -2,6 +2,10 @@ const express = require('express');
 const router = express.Router();
 const User = require('../../models/User');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const passport = require('passport');
+
+const key = require('../../config/keys');
 
 // @route   GET api/user/test
 // @desc    testing router
@@ -60,11 +64,33 @@ router.post('/login', (req, res) =>{
             bcrypt.compare(req.body.password, user.password)
                 .then( result => {
                 if(result){
-                    //will use jwt
-                    return res.json({msg: 'logged in'})
+                    //jwt
+                    const payload = {id: user.id, name: user.name, email: user.email};
+                   jwt.sign(payload,
+                       key.secretOrKey,
+                       { expiresIn: '1h' },
+                       (err, token) =>{
+                       return res.json({token:'Bearer ' + token})
+                       })
                 }else{
                     return res.status(404).json({password: 'password incorrect'})                }
             });
         })
 } );
+
+// @route   GET api/user/profile
+// @desc   test login with token
+// @access  Private
+
+router.get('/profile',
+    passport.authenticate('jwt',{session: false}),
+        (req, res) => {
+            res.json({
+                id: req.user.id,
+                name: req.user.name,
+                email: req.user.email
+            });
+        }
+);
+
 module.exports = router;
