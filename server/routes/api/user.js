@@ -57,7 +57,7 @@ router.post('/login', (req, res) =>{
         .then( user => {
             //check if user is in DB
             if(!user){
-                return res.status(404).json({msg: 'invalid user'})
+                return res.status(404).json({email: 'invalid email address'})
             }
 
             //if user is in db check password

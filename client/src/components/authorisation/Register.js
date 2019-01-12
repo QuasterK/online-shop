@@ -66,7 +66,7 @@ onSubmit = (e) =>{
 
                             <form noValidate onSubmit={this.onSubmit}>
                                 <Textbox
-                                    classNameInput=""
+                                    classNameInput="mt-3"
                                     id={"Name"}
                                     name="Name"
                                     type="text"
@@ -92,6 +92,7 @@ onSubmit = (e) =>{
                                     }}
                                 />
                                 <Textbox
+                                    classNameInput="mt-3"
                                     id={"Email"}
                                     name="Email"
                                     type="text"
@@ -112,6 +113,7 @@ onSubmit = (e) =>{
                                         check: true,
                                         required: true,
                                         customFunc: email => {
+                                            // eslint-disable-next-line
                                             const reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                                             if (reg.test(String(email).toLowerCase())) {
                                                 return true;
@@ -123,6 +125,7 @@ onSubmit = (e) =>{
                                     }}
                                 />
                                 <Textbox
+                                    classNameInput="mt-3"
                                     id={"Password"}
                                     name="Password"
                                     type="password"
@@ -148,6 +151,7 @@ onSubmit = (e) =>{
                                     }}
                                 />
                                 <Textbox
+                                    classNameInput="mt-3"
                                     id={"Password2"}
                                     name="Password2"
                                     type="password"
