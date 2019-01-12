@@ -7,20 +7,19 @@ const initState = {
 };
 
 const authReducer = (state = initState, action) =>  {
-    switch (action.type){
-        case GET_LOGIN_ERROR:
-            return {
-                ...state,
-                errors: action.payload
-            };
-        case SET_CURRENT_USER:
-            return {
-                ...state,
-                isAuth: true,
-                user: action.payload
-            };
-        default:
-            return state
+    if (action.type === GET_LOGIN_ERROR) {
+        return {
+            ...state,
+            errors: action.payload
+        };
+    } else if (action.type === SET_CURRENT_USER) {
+        return {
+            ...state,
+            isAuth: !(typeof action.payload === 'object' && Object.keys(action.payload).length === 0),
+            user: action.payload
+        };
+    } else {
+        return state
     }
 };
 

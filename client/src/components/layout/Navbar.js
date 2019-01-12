@@ -1,5 +1,8 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {connect} from 'react-redux';
+import {logoutUser} from "../../actions/authActions";
+
 
 class Navbar extends React.Component{
     constructor(props){
@@ -8,8 +11,14 @@ class Navbar extends React.Component{
             isAuthenticated: false,
         }
     }
+    logout = () =>{
+        const {logoutUser} = this.props;
+
+        logoutUser()
+    };
+
     render(){
-        const {isAuthenticated} = this.state;
+        const {isAuth, user} = this.props.auth;
 
         const guestLinks = (
             <ul className="navbar-nav ml-auto">
@@ -27,9 +36,21 @@ class Navbar extends React.Component{
         );
 
         const LogInLinks = (
-            <div>
-                it will be created soon
-            </div>
+            <ul className="navbar-nav ml-auto">
+                <li className='nav-link d-none d-md-block'>
+                    Hello, {user.name}
+                </li>
+                <li className="nav-item">
+                    <div className="nav-link" onClick={this.logout}>
+                        Log Out
+                    </div>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/login">
+                        CART
+                    </Link>
+                </li>
+            </ul>
         );
 
         return(
@@ -48,7 +69,7 @@ class Navbar extends React.Component{
                     </button>
 
                     <div className="collapse navbar-collapse" id="mobile-nav">
-                        {isAuthenticated ? LogInLinks : guestLinks}
+                        {isAuth ? LogInLinks : guestLinks}
                     </div>
                 </div>
             </nav>
@@ -57,4 +78,10 @@ class Navbar extends React.Component{
     };
 }
 
-export default Navbar;
+const mapStateToProps = state => {
+    return {
+        auth: state.auth
+    }
+};
+
+export default connect(mapStateToProps, {logoutUser})(Navbar);
