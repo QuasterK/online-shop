@@ -9,3 +9,4 @@ export const DELETE_FROM_FILTER = 'DELETE_FROM_FILTER';
 
 export const CHANGE_PRICE = 'CHANGE_PRICE';
 
+export const REGISTER_USER = 'REGISTER_USER';
