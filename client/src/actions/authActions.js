@@ -1,12 +1,17 @@
 import axios from 'axios';
-import {GET_LOGIN_ERROR, SET_CURRENT_USER} from './types';
+import {GET_LOGIN_ERROR, SET_CURRENT_USER, CLEAR_ERRORS} from './types';
 import{setAuthToken} from'./setAuthToken';
 import jwt_decode from'jwt-decode';
 
 export const registerUser = (userData, history) => dispatch => {
     axios.post('/api/users/register', userData)
         .then(() => history.push('/login'))
-        .catch(err => console.log(err))
+        .then(dispatch(clearErrors({})))
+        .catch(err =>
+            dispatch({
+                type:GET_LOGIN_ERROR,
+                payload: err.response.data
+            }))
 };
 
 export const loginUser = (userData, history) => dispatch => {
@@ -18,6 +23,7 @@ export const loginUser = (userData, history) => dispatch => {
             const decoded = jwt_decode(token);
             dispatch(setCurrentUser(decoded));
         })
+        .then(dispatch(clearErrors({})))
         .then(() => history.push('/'))
         .catch(err =>
             dispatch({
@@ -39,3 +45,10 @@ export const logoutUser = () => dispatch => {
     dispatch(setCurrentUser({}));
 
 };
+
+export const clearErrors = clear => dispatch=> {
+    dispatch({
+        type: CLEAR_ERRORS,
+        payload: clear
+    })
+}

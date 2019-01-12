@@ -12,3 +12,4 @@ export const CHANGE_PRICE = 'CHANGE_PRICE';
 export const REGISTER_USER = 'REGISTER_USER';
 export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const GET_LOGIN_ERROR = 'GET_LOGIN_ERROR';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';

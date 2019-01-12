@@ -1,4 +1,4 @@
-import {GET_LOGIN_ERROR, SET_CURRENT_USER} from "../actions/types";
+import {CLEAR_ERRORS, GET_LOGIN_ERROR, SET_CURRENT_USER} from "../actions/types";
 
 const initState = {
     isAuth: false,
@@ -18,6 +18,11 @@ const authReducer = (state = initState, action) =>  {
             isAuth: !(typeof action.payload === 'object' && Object.keys(action.payload).length === 0),
             user: action.payload
         };
+    } else if(action.type === CLEAR_ERRORS){
+        return{
+            ...state,
+            errors: action.payload
+        }
     } else {
         return state
     }

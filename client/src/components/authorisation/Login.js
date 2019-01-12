@@ -100,8 +100,8 @@ class Login extends Component{
                                         required: true,
                                     }}
                                 />
-                                {typeof errors === 'object' && Object.keys(errors).length !== 0 ? (<div>{this.props.auth.errors.email}</div>) : null}
-                                {typeof errors === 'object' && Object.keys(errors).length!== 0 ? (<div>{this.props.auth.errors.password}</div>) : null}
+                                {typeof errors === 'object' && Object.keys(errors).length !== 0 ? (<div>{errors.email}</div>) : null}
+                                {typeof errors === 'object' && Object.keys(errors).length!== 0 ? (<div>{errors.password}</div>) : null}
                                 <input onClick={this.onSubmit} type="submit" className="btn btn-info btn-block mt-4"/>
                             </form>
                         </div>

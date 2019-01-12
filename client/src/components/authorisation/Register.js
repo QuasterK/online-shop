@@ -53,7 +53,8 @@ onSubmit = (e) =>{
 }
 
     render() {
-    const {validate, name, email, password, password2} = this.state
+    const {validate, name, email, password, password2} = this.state;
+    const {errors} = this.props.auth;
         return (
             <div className="register">
                 <div className="container">
@@ -176,6 +177,7 @@ onSubmit = (e) =>{
 
                                     }}
                                 />
+                                {typeof errors === 'object' && Object.keys(errors).length !== 0 ? (<div>{errors.email}</div>) : null}
                                 <input onClick={this.onSubmit} type="submit" className="btn btn-info btn-block mt-4"/>
                             </form>
                         </div>

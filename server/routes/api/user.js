@@ -24,7 +24,7 @@ router.post('/register', (req, res) => {
         .then( user => {
             //check if user is in db
             if (user) {
-                return res.status(400).json({msg: 'User with chosen email already exist'})
+                return res.status(400).json({email: 'User with chosen email already exist'})
             } else {
                 //create new user
                 const newUser = new User({
