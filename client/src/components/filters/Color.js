@@ -32,12 +32,24 @@ class Colors extends Component{
     render(){
         const {colors} = this.props;
 
-        return  <div className="container">
-            <div className='h2'>Colors</div>
-            <div className={classnames('color', 'yellow', {'chosen' : colors.includes('yellow')})} onClick={(e) => this.chooseColor(e)} id='yellow'/>
-            <div className={classnames('color', 'black', {'chosen' : colors.includes('black')})} onClick={(e) => this.chooseColor(e)} id='black'/>
-            <div className={classnames('color', 'green', {'chosen' : colors.includes('green')})} onClick={(e) => this.chooseColor(e)} id='green'/>
-            <div className={classnames('color', 'red', {'chosen' : colors.includes('red')})} onClick={(e) => this.chooseColor(e)} id='red'/>
+        return  <div className="container mb-2">
+            <div className='row'>
+                <p className=" col p-2 mb-0 bg-secondary text-light">
+                    Color
+                </p>
+            </div>
+            <div className="row">
+                <button type="button" className={classnames("btn btn-block text-white", "yellow",{"bg-dark text-white": colors.includes('yellow')})} onClick={(e) => this.chooseColor(e)} id='yellow'>Yellow </button>
+            </div>
+            <div className="row">
+                <button type="button" className={classnames("btn btn-block text-white", "black",{"bg-dark text-white": colors.includes('black')})} onClick={(e) => this.chooseColor(e)} id='black'>Black</button>
+            </div>
+            <div className="row">
+                <button type="button" className={classnames("btn btn-block text-white", "green",{"bg-dark text-white": colors.includes('green')})} onClick={(e) => this.chooseColor(e)} id='green'>Green </button>
+            </div>
+            <div className="row">
+                <button type="button" className={classnames("btn btn-block text-white", "red",{"bg-dark text-white": colors.includes('red')})} onClick={(e) => this.chooseColor(e)} id='red'>Red </button>
+            </div>
         </div>
     }
 }

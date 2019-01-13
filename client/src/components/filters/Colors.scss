@@ -1,14 +1,8 @@
-.color{
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: inline-block;
-  margin: 3px;
-}
-
 .yellow{
   background-color: yellow;
+}
+.yellow:hover{
+  background-color: lighten(yellow,20%);
 }
 .black{
   background-color: black;
@@ -19,11 +13,14 @@
 .red{
   background-color: red;
 }
+.red:hover{
+  background-color: lighten(red,20%);
+}
 .green{
   background-color: green;
 }
-.chosen{
-  width: 35px;
-  height: 35px;
+.green:hover{
+  background-color: lighten(green,20%);
 }
+
 

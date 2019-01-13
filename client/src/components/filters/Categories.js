@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import classnames from 'classnames';
 import {getFilter, deleteFilter, getToFilter, getNextToFilter, deleteFromFilter} from "../../actions/filtersAction";
 
 class Categories extends Component{
@@ -27,32 +28,27 @@ class Categories extends Component{
     };
 
     render(){
+        const {category} = this.props;
+
         return <div className='categories'>
-            <div className='container border-bottom'>
+            <div className='container mb-2 border-bottom'>
                 <div className="row">
-                    <div className="col h2">
-                        Categories
-                    </div>
+                    <p className=" col p-2 mb-0 bg-secondary text-light">
+                        Category
+                    </p>
                 </div>
                 <div className="row">
-                    <div className="col" onClick={e =>this.selectCategory(e)} id='usual'>
-                        Usual
-                    </div>
+                    <button type="button" className={classnames("btn btn-outline-secondary btn-block", {"bg-dark text-white" : category.includes('usual')})} onClick={(e) => this.selectCategory(e)} id='usual'>Usual</button>
+
                 </div>
                 <div className="row">
-                    <div className="col" onClick={e =>this.selectCategory(e)} id='military'>
-                        Military
-                    </div>
+                    <button type="button" className={classnames("btn btn-outline-secondary btn-block", {"bg-dark text-white" : category.includes('military')})} onClick={(e) => this.selectCategory(e)} id='military'>Military</button>
                 </div>
                 <div className="row">
-                    <div className="col" onClick={e =>this.selectCategory(e)} id='minimalist'>
-                        Minimalist
-                    </div>
+                    <button type="button" className={classnames("btn btn-outline-secondary btn-block", {"bg-dark text-white" : category.includes('minimalist')})} onClick={(e) => this.selectCategory(e)} id='minimalist'>Minimalist</button>
                 </div>
                 <div className="row">
-                    <div className="col" onClick={e =>this.selectCategory(e)} id='watches'>
-                        Best sellers
-                    </div>
+                    <button type="button" className={classnames("btn btn-outline-secondary btn-block", {"bg-dark text-white" : category.includes('best seller')})} onClick={(e) => this.selectCategory(e)} id='best seller'>Best sellers</button>
                 </div>
             </div>
         </div>

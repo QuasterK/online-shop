@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getFilter, deleteFilter, getToFilter, getNextToFilter, deleteFromFilter} from "../../actions/filtersAction";
+import classnames from "classnames";
 
 class Sizes extends Component{
     selectSize = e => {
@@ -27,27 +28,25 @@ class Sizes extends Component{
     };
 
     render(){
+        const {size} = this.props;
+
         return <div className='size'>
-            <div className='container'>
+            <div className='container bg-light'>
                 <div className="row">
-                    <div className="col h2">
+                    <p className=" col p-2 mb-0 bg-secondary text-light">
                         Size
-                    </div>
+                    </p>
                 </div>
                 <div className="row">
-                    <div className="col" onClick={e=> this.selectSize(e)} id='small'>
-                        Small
-                    </div>
+                    <button type="button" className={classnames("btn btn-outline-secondary btn-block", {"bg-dark text-white" : size.includes('small')})} onClick={(e) => this.selectSize(e)} id='small'>Small</button>
                 </div>
                 <div className="row">
-                    <div className="col" onClick={e=> this.selectSize(e)} id='medium'>
-                        Medium
-                    </div>
+                    <button type="button" className={classnames("btn btn-outline-secondary btn-block", {"bg-dark text-white" : size.includes('medium')})} onClick={(e) => this.selectSize(e)} id='medium'>Medium</button>
+
                 </div>
                 <div className="row">
-                    <div className="col" onClick={e=> this.selectSize(e)} id='large'>
-                        Large
-                    </div>
+                    <button type="button" className={classnames("btn btn-outline-secondary btn-block", {"bg-dark text-white" : size.includes('large')})} onClick={(e) => this.selectSize(e)} id='large'>Large</button>
+
                 </div>
             </div>
         </div>

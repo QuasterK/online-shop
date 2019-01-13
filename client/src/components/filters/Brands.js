@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {getFilter, deleteFilter, getToFilter, getNextToFilter, deleteFromFilter} from "../../actions/filtersAction";
 
 import './Brands.scss';
+import classnames from "classnames";
 
 class Brands extends Component{
 
@@ -30,37 +31,34 @@ class Brands extends Component{
     };
 
     render(){
+        const {brands} = this.props;
+
         return <div className='brands'>
-            <div className='container border-bottom'>
+            <div className='container mb-2 '>
                 <div className="row">
-                    <div className="col h2 ">
-                        Brands
-                    </div>
+                    <p className=" col p-2 mb-0 bg-secondary text-light">
+                        Brand
+                    </p>
                 </div>
                 <div className="row">
-                    <div className="col brand" onClick={e =>this.selectBrand(e)} id='Omega'>
-                        Omega
-                    </div>
+                    <button type="button" className={classnames("btn btn-outline-secondary btn-block", {"bg-dark text-white" : brands.includes('Omega')})} onClick={(e) => this.selectBrand(e)} id='Omega'>Omega</button>
+
                 </div>
                 <div className="row">
-                    <div className="col brand" onClick={e =>this.selectBrand(e)} id='Apache'>
-                        Apache
-                    </div>
+                    <button type="button" className={classnames("btn btn-outline-secondary btn-block", {"bg-dark text-white" : brands.includes('Apache')})} onClick={(e) => this.selectBrand(e)} id='Apache'>Apache</button>
                 </div>
                 <div className="row">
-                    <div className="col brand" onClick={e =>this.selectBrand(e)} id='Ping Pong'>
-                        Ping Pong
-                    </div>
+                    <button type="button" className={classnames("btn btn-outline-secondary btn-block", {"bg-dark text-white" : brands.includes('Ping Pong')})} onClick={(e) => this.selectBrand(e)} id='Ping Pong'>Ping Pong</button>
+
                 </div>
                 <div className="row">
-                    <div className="col brand" onClick={e =>this.selectBrand(e)} id='Jings'>
-                        Jings
-                    </div>
+                    <button type="button" className={classnames("btn btn-outline-secondary btn-block", {"bg-dark text-white" : brands.includes('Jings')})} onClick={(e) => this.selectBrand(e)} id='Jings'>Jings</button>
+
+
                 </div>
                 <div className="row">
-                    <div className="col brand" onClick={e =>this.selectBrand(e)} id='Hellow'>
-                        Hellow
-                    </div>
+                    <button type="button" className={classnames("btn btn-outline-secondary btn-block", {"bg-dark text-white" : brands.includes('Hellow')})} onClick={(e) => this.selectBrand(e)} id='Hellow'>Hellow</button>
+
                 </div>
             </div>
         </div>

@@ -38,15 +38,19 @@ class Filter extends Component{
     };
 
     render() {
-        return <div className='container'>
-            <p>Filter by:</p>
-            <Categories/>
-            <Prices/>
-            <Colors/>
-            <Brands/>
-            <Sizes/>
-            <button onClick={(e) => this.sendFilters(e)}>Filter</button>
+        return(
+        <div className='filters'>
+            <div className='container bg-light'>
+                <h5 className=' col p-2 mb-2 bg-secondary text-center text-light'>FILTERS</h5>
+                <Categories/>
+                <Prices/>
+                <Colors/>
+                <Brands/>
+                <Sizes/>
+                <button className="col p-2 mt-2 bg-secondary text-light" onClick={(e) => this.sendFilters(e)}>Filter</button>
+            </div>
         </div>
+        )
     }
 }
 

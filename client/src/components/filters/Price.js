@@ -16,14 +16,18 @@ class Prices extends Component{
 
         return (
             <div className="container">
-                <div>
+                <div className="row">
+                    <p className=" col p-2 mb-4 bg-secondary text-light">
+                        Price
+                    </p>
+                </div>
+                <div className=" mb-0 text-light">
                     <Range min={0} max={200} step={10} defaultValue={[0, 200]}  onChange={e=> this.onRangeChange(e)}/>
                 </div>
-                <div>
-                    <span>Min. price : </span> <span>{price[0]}$</span>
-                </div>
-                <div>
-                    <span>Max. price : </span> <span>{price[1]}$</span>
+                <div className=" row mt-4">
+                    <span className="col-6 p-2 mb-4 bg-dark text-light d-block">Min. price : {price[0]}$</span>
+
+                    <span className="col-6 p-2 mb-4 bg-dark text-light d-block">Max. price : {price[1]}$</span>
                 </div>
             </div>
         )
@@ -33,5 +37,6 @@ const mapStateToProps = state => {
     return {
         price: state.filters.price
     }
-}
+};
+
 export default connect(mapStateToProps, {changePrice})(Prices);
