@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Item from '../items/Item';
+import Item from './Item';
 import { getItems} from '../../actions/itemsAction';
 
 class Landing extends Component{
@@ -14,15 +14,20 @@ class Landing extends Component{
         const {itemsToShow} = this.props.item;
 
         const showItems = (
-            <div>
+            <div className="d-flex justify-content-between flex-wrap">
                 {itemsToShow.map(item => {
-                    return <Item key={item._id} name={item.name}/>
+                    return <Item key={item._id}
+                                 name={item.name}
+                                 price={item.price}
+                                 category={ item.category}
+                                 brand={item.brand}
+                                 id={item._id}/>
                 })}
             </div>
         );
 
         return <div className='container'>
-            {showItems}
+                {showItems}
         </div>
     }
 }

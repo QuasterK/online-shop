@@ -1,7 +1,8 @@
-import {GET_ITEMS, GET_ITEMS_TO_SHOW} from '../actions/types'
+import {ADD_TO_CART, GET_ITEMS, GET_ITEMS_TO_SHOW} from '../actions/types'
 const initialState = {
     items: [],
-    itemsToShow: []
+    itemsToShow: [],
+    itemsInCart: [],
 };
 
 export default  (state = initialState, action) => {
@@ -16,6 +17,11 @@ export default  (state = initialState, action) => {
             return {
                 ...state,
                 itemsToShow: action.payload
+            };
+        case ADD_TO_CART:
+            return {
+                ...state,
+                itemsInCart: [...action.payload]
             };
         default:
             return state

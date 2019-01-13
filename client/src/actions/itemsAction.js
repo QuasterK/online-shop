@@ -1,4 +1,4 @@
-import {GET_ITEMS, GET_ITEMS_TO_SHOW} from './types';
+import {ADD_TO_CART, GET_ITEMS, GET_ITEMS_TO_SHOW} from './types';
 import axios from "axios/index";
 
 //get all items
@@ -27,4 +27,16 @@ export const getItemsToShow = itemsData => dispatch => {
         type: GET_ITEMS_TO_SHOW,
         payload: itemsData
     })
+};
+
+//add item to cart
+export const addToCart = item => dispatch => {
+    dispatch({
+        action: ADD_TO_CART,
+        payload: item
+    })
+};
+
+export const deleteFromCart = item => dispatch => {
+
 };

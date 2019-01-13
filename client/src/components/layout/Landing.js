@@ -7,10 +7,10 @@ class Landing extends Component{
     render(){
         return <div className='container'>
             <div className='row'>
-                <div className='col col-md-3 d-none d-md-block'>
+                <div className='col-md-4 col-lg-3 d-none d-md-block'>
                     <Filters/>
                 </div>
-                <div className='col-md-9'>
+                <div className='col-12 col-md-8 col-lg-9'>
                     <Items/>
                 </div>
             </div>
