@@ -32,7 +32,7 @@ export const getItemsToShow = itemsData => dispatch => {
 //add item to cart
 export const addToCart = item => dispatch => {
     dispatch({
-        action: ADD_TO_CART,
+        type: ADD_TO_CART,
         payload: item
     })
 };

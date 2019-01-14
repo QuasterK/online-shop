@@ -21,7 +21,7 @@ export default  (state = initialState, action) => {
         case ADD_TO_CART:
             return {
                 ...state,
-                itemsInCart: [...action.payload]
+                itemsInCart: [...state.itemsInCart,action.payload]
             };
         default:
             return state

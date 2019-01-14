@@ -14,6 +14,7 @@ import Footer from './components/layout/Footer';
 import Landing from './components/layout/Landing';
 import Register from "./components/authorisation/Register";
 import Login from "./components/authorisation/Login";
+import Cart from "./components/cart/Cart";
 import './App.css';
 
 //keeps logged user after refreshing
@@ -33,6 +34,7 @@ class App extends Component {
                   <Route exact path="/" component={Landing} />
                   <Route path='/register' component={Register}/>
                   <Route path='/login' component={Login}/>
+                  <Route path='/cart' component={Cart}/>
                   <Footer/>
               </div>
             </Router>

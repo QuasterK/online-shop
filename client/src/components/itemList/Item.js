@@ -24,6 +24,7 @@ class Item extends Component{
                return item
            }
         });
+        console.log(searchingItem)
         addToCart(searchingItem)
     };
 
