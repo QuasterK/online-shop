@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const item = require('./routes/api/item');
 const users = require('./routes/api/user');
-const path = require('path');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -30,15 +29,11 @@ mongoose
     .then(() => console.log('connected to DB'))
     .catch(err => console.log(err));
 
-// server static assets if in production
-if (process.env.NODE_ENV === 'production') {
-    // set static folder
-    app.use(express.static('../client/build'));
+// respond with "hello world" when a GET request is made to the homepage
+app.get('/', function (req, res) {
+    res.send('hello world')
+});
 
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html'));
-    });
-}
 const port = process.env.PORT || 3001;
 
 app.listen(port);
