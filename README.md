@@ -20,3 +20,6 @@ to launch this app first go to server directory, then install all dependencies (
 *npm run client-install
 
 *npm run dev
+
+##acknowledge: 
+this site is still under construction.
