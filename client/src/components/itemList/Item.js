@@ -25,6 +25,7 @@ class Item extends Component{
            }
         });
         console.log(searchingItem)
+        console.log(item.itemsInCart.length)
         addToCart(searchingItem)
     };
 
@@ -46,7 +47,7 @@ class Item extends Component{
 
         return (
 
-            <div className="col d-flex flex-column justify-content-center m-2 border-secondary">
+            <div className="col mb-4 d-flex flex-column justify-content-center" style={{"boxSizing": "border-box", "maxWidth" : "200px", "maxHeight": "420px", "minWidth": "200px", "minHeight": "320px"}}>
                 <div className="row">
                     <img width="200px" height="200px" src={image} alt={name} className="img-responsive rounded mx-auto d-block"/>
                 </div>

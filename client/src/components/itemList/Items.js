@@ -14,7 +14,7 @@ class Landing extends Component{
         const {itemsToShow} = this.props.item;
 
         const showItems = (
-            <div className="d-flex justify-content-between flex-wrap">
+            <div className="d-flex flex-column align-items-center flex-sm-row justify-content-sm-between flex-sm-wrap">
                 {itemsToShow.map(item => {
                     return <Item key={item._id}
                                  name={item.name}

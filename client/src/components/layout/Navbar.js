@@ -19,7 +19,7 @@ class Navbar extends React.Component{
 
     render(){
         const {isAuth, user} = this.props.auth;
-
+        const {itemsInCart} = this.props.item;
         const guestLinks = (
             <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
@@ -48,6 +48,7 @@ class Navbar extends React.Component{
                 <li className="nav-item">
                     <Link className="nav-link" to="/cart">
                         CART
+                        <sup style={{ "fontSize": "14px", "fontWeight": "bolder", "paddingLeft": "3px" }} className="text-danger">{itemsInCart.length}</sup>
                     </Link>
                 </li>
             </ul>
@@ -80,7 +81,8 @@ class Navbar extends React.Component{
 
 const mapStateToProps = state => {
     return {
-        auth: state.auth
+        auth: state.auth,
+        item: state.item
     }
 };
 
