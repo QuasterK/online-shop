@@ -11,7 +11,7 @@ export default  (state = initialState, action) => {
             return {
                 ...state,
                 items: action.payload,
-                itemsToShow: action.payload
+                itemsToShow: state.itemsToShow.length <= 0 ? action.payload : state.itemsToShow
             };
         case GET_ITEMS_TO_SHOW:
             return {

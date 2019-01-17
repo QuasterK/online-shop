@@ -8,14 +8,6 @@ class Footer extends Component {
                     <span>here will be filter conainer</span>
                 </div>
 
-                <button
-                    className="navbar-toggler text-white text-right"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#mobile-footer-filter"
-                >
-                    Filter
-                </button>
                 <div className='text-center'>Copyright &copy; {new Date().getFullYear()} Piotrek</div>
 
             </footer>

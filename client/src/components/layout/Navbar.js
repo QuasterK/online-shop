@@ -32,6 +32,11 @@ class Navbar extends React.Component{
                         Login
                     </Link>
                 </li>
+                <li className="nav-item d-block d-sm-none">
+                    <Link className="nav-link" to="/filters">
+                        Filter
+                    </Link>
+                </li>
             </ul>
         );
 
@@ -49,6 +54,11 @@ class Navbar extends React.Component{
                     <Link className="nav-link" to="/cart">
                         CART
                         <sup style={{ "fontSize": "14px", "fontWeight": "bolder", "paddingLeft": "3px" }} className="text-danger">{itemsInCart.length}</sup>
+                    </Link>
+                </li>
+                <li className="nav-item d-block d-sm-none">
+                    <Link className="nav-link" to="/filters">
+                        Filter
                     </Link>
                 </li>
             </ul>

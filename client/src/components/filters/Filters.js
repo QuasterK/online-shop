@@ -12,9 +12,9 @@ class Filter extends Component{
 
     sendFilters = e =>{
         e.preventDefault();
-        const {items} = this.props.items;
-        const {getItemsToShow, filters} = this.props;
 
+        const {items} = this.props.items;
+        const {getItemsToShow, filters, history} = this.props;
         const filter = filters.filter;
         const newFilter = {};
 
@@ -35,6 +35,9 @@ class Filter extends Component{
         });
 
         getItemsToShow(itemsToDisplay)
+        if(history.location.pathname === "/filters"){
+            history.push("/")
+        }
     };
 
     render() {

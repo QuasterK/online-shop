@@ -16,6 +16,7 @@ import Register from "./components/authorisation/Register";
 import Login from "./components/authorisation/Login";
 import Cart from "./components/cart/Cart";
 import './App.css';
+import Filters from "./components/filters/Filters";
 
 //keeps logged user after refreshing
 if(localStorage.jwtToken){
@@ -35,6 +36,7 @@ class App extends Component {
                   <Route path='/register' component={Register}/>
                   <Route path='/login' component={Login}/>
                   <Route path='/cart' component={Cart}/>
+                  <Route path='/filters' component={Filters}/>
                   <Footer/>
               </div>
             </Router>
