@@ -41,7 +41,7 @@ class Navbar extends React.Component{
         );
 
         const LogInLinks = (
-            <ul className="navbar-nav ml-auto">
+            <ul className="navbar-nav ml-auto ">
                 <li className='nav-link d-none d-md-block'>
                     Hello, {user.name}
                 </li>
@@ -65,7 +65,7 @@ class Navbar extends React.Component{
         );
 
         return(
-            <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
+            <nav className="navbar navbar-expand-sm navbar-dark fixed-top bg-dark mb-4">
                 <div className="container">
                     <Link className="navbar-brand text-white" to="/">
                         Online-shop

@@ -5,7 +5,7 @@ import Filters from '../filters/Filters'
 class Landing extends Component{
 
     render(){
-        return <div className='container'>
+        return <div className='container mt-5 pt-2'>
             <div className='row'>
                 <div className='col-md-4 col-lg-3 d-none d-md-block'>
                     <Filters/>
