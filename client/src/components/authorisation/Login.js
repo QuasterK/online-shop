@@ -44,7 +44,7 @@ class Login extends Component{
         const {email, password, validate} = this.state
         const {errors} = this.props.auth;
         return(
-           <div className="login">
+           <div className="login  mt-5 pt-2">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 m-auto">

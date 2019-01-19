@@ -56,7 +56,7 @@ onSubmit = (e) =>{
     const {validate, name, email, password, password2} = this.state;
     const {errors} = this.props.auth;
         return (
-            <div className="register">
+            <div className="register mt-5 pt-2">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 m-auto">

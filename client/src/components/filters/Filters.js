@@ -5,6 +5,7 @@ import Colors from "./Color";
 import Prices from "./Price";
 import Sizes from "./Size";
 import {getItemsToShow} from '../../actions/itemsAction';
+import { withRouter } from 'react-router'
 
 import {connect} from 'react-redux'
 
@@ -35,14 +36,14 @@ class Filter extends Component{
         });
 
         getItemsToShow(itemsToDisplay)
-        if(history.location.pathname === "/filters"){
-            history.push("/")
-        }
+            if (history.location.pathname === "/filters") {
+                history.push("/")
+            }
     };
 
     render() {
         return(
-        <div className='filters'>
+        <div className='filters '>
             <div className='container bg-light'>
                 <h5 className=' col p-2 mb-2 bg-secondary text-center text-light'>FILTERS</h5>
                 <Categories/>
@@ -63,4 +64,4 @@ const mapStateToProps = state =>({
 
 });
 
-export default connect(mapStateToProps, {getItemsToShow}) (Filter);
+export default connect(mapStateToProps, {getItemsToShow}) (withRouter(Filter));
