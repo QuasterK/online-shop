@@ -49,7 +49,7 @@ class Item extends Component{
 
             <div className="col mb-4 d-flex flex-column justify-content-center" style={{"boxSizing": "border-box", "maxWidth" : "200px", "maxHeight": "420px", "minWidth": "200px", "minHeight": "320px"}}>
                 <div className="row">
-                    <Link to={name}>
+                    <Link to={id}>
                         <img width="200px" height="200px" src={image} alt={name} className="img-responsive rounded mx-auto d-block"/>
                     </Link>
                 </div>

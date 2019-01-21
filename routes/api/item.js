@@ -12,8 +12,19 @@ const Item = require('../../models/Item');
 router.get('/get', function (req, res) {
     Item.find()
         .then(item => res.json(item))
-        .catch(err => res.status(404).json({noitem: 'no items for sale'}))
+        .catch(err => res.status(404).json({noitems: 'no items for sale'}))
 });
+
+// @route   GET api/item/get
+// @desc    getting singe item
+// @access  Public
+
+router.get('/get/:id', function (req, res) {
+    Item.findOne({_id: req.params.id})
+        .then(item => res.json(item))
+        .catch(err => res.status(404).json({noitem: 'no such item for sale'}))
+});
+
 
 // @route   POST api/item/add
 // @desc    add new item to db

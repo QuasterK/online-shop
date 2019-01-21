@@ -55,7 +55,7 @@ class Sizes extends Component{
 }
 
 Sizes.propTypes = {
-    sizes: PropTypes.array.isRequired,
+    size: PropTypes.array.isRequired,
     filters: PropTypes.object.isRequired,
     getFilter: PropTypes.func.isRequired,
     deleteFromFilter: PropTypes.func.isRequired,

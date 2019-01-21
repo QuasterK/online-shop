@@ -1,4 +1,5 @@
 export const GET_ITEMS = 'GET_ITEMS';
+export const GET_ITEM = 'GET_ITEM';
 export const GET_ITEMS_TO_SHOW= 'GET_ITEMS_TO_SHOW';
 
 export const GET_FILTER = 'GET_FILTER';
