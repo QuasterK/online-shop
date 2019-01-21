@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {addToCart} from "../../actions/itemsAction";
+import {withRouter, Link} from 'react-router-dom';
 
 class Item extends Component{
     constructor(props){
@@ -47,7 +48,9 @@ class Item extends Component{
 
             <div className="col mb-4 d-flex flex-column justify-content-center" style={{"boxSizing": "border-box", "maxWidth" : "200px", "maxHeight": "420px", "minWidth": "200px", "minHeight": "320px"}}>
                 <div className="row">
-                    <img width="200px" height="200px" src={image} alt={name} className="img-responsive rounded mx-auto d-block"/>
+                    <Link to={name}>
+                        <img width="200px" height="200px" src={image} alt={name} className="img-responsive rounded mx-auto d-block"/>
+                    </Link>
                 </div>
                 <div className="row ">
                     <p className='col m-0 p-0 text-center d-block font-weight-bold'>{name}</p>
@@ -74,4 +77,4 @@ const mapStateToProps = state =>{
     }
 };
 
-export default connect(mapStateToProps, {addToCart})(Item);
+export default connect(mapStateToProps, {addToCart})(withRouter(Item));
