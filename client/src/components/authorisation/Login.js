@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Textbox} from 'react-inputs-validation';
 import {connect} from 'react-redux';
 import {loginUser} from "../../actions/authActions";
+import PropTypes from 'prop-types';
 
 class Login extends Component{
     constructor(props){
@@ -111,6 +112,11 @@ class Login extends Component{
         )
     }
 }
+
+Login.propTypes = {
+  auth: PropTypes.object.isRequired,
+  loginUser: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => {
     return {

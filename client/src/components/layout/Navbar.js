@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import {connect} from 'react-redux';
 import {logoutUser} from "../../actions/authActions";
+import PropTypes from "prop-types";
 
 
 class Navbar extends React.Component{
@@ -88,6 +89,12 @@ class Navbar extends React.Component{
 
     };
 }
+
+Navbar.propTypes = {
+    auth: PropTypes.object.isRequired,
+    item: PropTypes.object.isRequired,
+    logoutUser: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => {
     return {

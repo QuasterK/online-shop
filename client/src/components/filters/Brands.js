@@ -4,6 +4,7 @@ import {getFilter, deleteFilter, getToFilter, getNextToFilter, deleteFromFilter}
 
 import './Brands.scss';
 import classnames from "classnames";
+import PropTypes from "prop-types";
 
 class Brands extends Component{
 
@@ -65,12 +66,21 @@ class Brands extends Component{
     }
 }
 
+Brands.propTypes = {
+    brands: PropTypes.array.isRequired,
+    filters: PropTypes.object.isRequired,
+    getFilter: PropTypes.func.isRequired,
+    deleteFromFilter: PropTypes.func.isRequired,
+    getNextToFilter: PropTypes.func.isRequired,
+    deleteFilter: PropTypes.func.isRequired,
+    getToFilter: PropTypes.func.isRequired
+};
+
 const mapStateToProps = state => {
     return {
         brands: state.filters.brands,
         filters: state.filters
-
     }
-}
+};
 
 export default connect(mapStateToProps, {getToFilter, deleteFilter, getNextToFilter, deleteFromFilter, getFilter}) (Brands);

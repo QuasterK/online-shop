@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import PropTypes from "prop-types";
 
 
 class Cart extends Component{
@@ -7,6 +8,12 @@ class Cart extends Component{
         return <div/>
     }
 }
+
+Cart.propTypes = {
+    auth: PropTypes.object.isRequired,
+    item: PropTypes.object.isRequired
+
+};
 
 const mapStateToProps = state =>{
     return {

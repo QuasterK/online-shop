@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import './Colors.scss';
 import {connect} from 'react-redux';
 import {getFilter, deleteFilter, getToFilter, getNextToFilter, deleteFromFilter} from "../../actions/filtersAction";
+import PropTypes from "prop-types";
 
 class Colors extends Component{
 
@@ -54,12 +55,21 @@ class Colors extends Component{
     }
 }
 
+Colors.propTypes = {
+    colors: PropTypes.array.isRequired,
+    filters: PropTypes.object.isRequired,
+    getFilter: PropTypes.func.isRequired,
+    deleteFromFilter: PropTypes.func.isRequired,
+    getNextToFilter: PropTypes.func.isRequired,
+    deleteFilter: PropTypes.func.isRequired,
+    getToFilter: PropTypes.func.isRequired
+};
+
 const mapStateToProps = state =>{
     return {
         filters: state.filters,
         colors: state.filters.colors
-
     }
-}
+};
 
 export default connect(mapStateToProps, {getFilter, deleteFilter, getToFilter, getNextToFilter, deleteFromFilter})(Colors);

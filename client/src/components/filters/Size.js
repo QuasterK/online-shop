@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getFilter, deleteFilter, getToFilter, getNextToFilter, deleteFromFilter} from "../../actions/filtersAction";
 import classnames from "classnames";
+import PropTypes from "prop-types";
 
 class Sizes extends Component{
     selectSize = e => {
@@ -53,11 +54,20 @@ class Sizes extends Component{
     }
 }
 
+Sizes.propTypes = {
+    sizes: PropTypes.array.isRequired,
+    filters: PropTypes.object.isRequired,
+    getFilter: PropTypes.func.isRequired,
+    deleteFromFilter: PropTypes.func.isRequired,
+    getNextToFilter: PropTypes.func.isRequired,
+    deleteFilter: PropTypes.func.isRequired,
+    getToFilter: PropTypes.func.isRequired
+};
+
 const mapStateToProps = state => {
     return {
         size: state.filters.size,
         filters: state.filters
-
     }
 };
 

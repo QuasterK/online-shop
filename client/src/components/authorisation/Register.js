@@ -4,10 +4,11 @@ import {withRouter} from 'react-router-dom';
 import {registerUser} from "../../actions/authActions";
 import {Textbox} from 'react-inputs-validation';
 import 'react-inputs-validation/lib/react-inputs-validation.min.css';
+import PropTypes from 'prop-types';
 
 class Register extends Component {
 constructor(props){
-    super(props)
+    super(props);
 
     this.state = {
         name:'',
@@ -35,6 +36,7 @@ onSubmit = (e) =>{
     e.preventDefault();
     this.toggleValidating(true);
     const {hasNameError, hasEmailError, hasPasswordError, hasPasswordError2} = this.state;
+    const {registerUser, history} = this.props;
     if (
         !hasNameError
         && !hasEmailError
@@ -48,9 +50,9 @@ onSubmit = (e) =>{
             password2: this.state.password2
         };
 
-        this.props.registerUser(newUser, this.props.history);
+        registerUser(newUser, history);
     }
-}
+};
 
     render() {
     const {validate, name, email, password, password2} = this.state;
@@ -187,6 +189,11 @@ onSubmit = (e) =>{
         );
     }
 }
+
+Register.propTypes = {
+    auth: PropTypes.object.isRequired,
+    registerUser: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => {
     return {

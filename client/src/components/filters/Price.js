@@ -3,6 +3,7 @@ import 'rc-slider/assets/index.css';
 import { Range } from 'rc-slider';
 import {connect} from 'react-redux';
 import {changePrice} from "../../actions/filtersAction";
+import PropTypes from "prop-types";
 
 
 class Prices extends Component{
@@ -33,6 +34,12 @@ class Prices extends Component{
         )
     }
 }
+
+Prices.propTypes = {
+    price: PropTypes.array.isRequired,
+    changePrice: PropTypes.func.isRequired
+};
+
 const mapStateToProps = state => {
     return {
         price: state.filters.price

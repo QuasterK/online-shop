@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {addToCart} from "../../actions/itemsAction";
 import {withRouter, Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class Item extends Component{
     constructor(props){
@@ -75,6 +76,13 @@ const mapStateToProps = state =>{
         auth: state.auth,
         item: state.item
     }
+};
+
+Item.propTypes = {
+  addToCart: PropTypes.func.isRequired,
+  item: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
+
 };
 
 export default connect(mapStateToProps, {addToCart})(withRouter(Item));

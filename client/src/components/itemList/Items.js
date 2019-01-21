@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Item from './Item';
 import { getItems} from '../../actions/itemsAction';
+import PropTypes from 'prop-types';
 
 class Landing extends Component{
 
@@ -30,6 +31,12 @@ class Landing extends Component{
         </div>
     }
 }
+
+Landing.propTypes = {
+  item: PropTypes.object.isRequired,
+  filters: PropTypes.object.isRequired,
+  getItems: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => ({
     item: state.item,

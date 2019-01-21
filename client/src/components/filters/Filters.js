@@ -8,6 +8,7 @@ import {getItemsToShow} from '../../actions/itemsAction';
 import { withRouter } from 'react-router'
 
 import {connect} from 'react-redux'
+import PropTypes from "prop-types";
 
 class Filter extends Component{
 
@@ -58,10 +59,15 @@ class Filter extends Component{
     }
 }
 
+Filter.propTypes = {
+    items: PropTypes.object.isRequired,
+    filters: PropTypes.object.isRequired,
+    getItemsToShow: PropTypes.func.isRequired
+};
+
 const mapStateToProps = state =>({
     filters: state.filters,
     items: state.item
-
 });
 
 export default connect(mapStateToProps, {getItemsToShow}) (withRouter(Filter));

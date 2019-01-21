@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import classnames from 'classnames';
 import {getFilter, deleteFilter, getToFilter, getNextToFilter, deleteFromFilter} from "../../actions/filtersAction";
+import PropTypes from "prop-types";
 
 class Categories extends Component{
     selectCategory = e => {
@@ -54,11 +55,21 @@ class Categories extends Component{
         </div>
     }
 }
+
+Categories.propTypes = {
+    category: PropTypes.array.isRequired,
+    filters: PropTypes.object.isRequired,
+    getFilter: PropTypes.func.isRequired,
+    deleteFromFilter: PropTypes.func.isRequired,
+    getNextToFilter: PropTypes.func.isRequired,
+    deleteFilter: PropTypes.func.isRequired,
+    getToFilter: PropTypes.func.isRequired
+};
+
 const mapStateToProps = state => {
     return {
         category: state.filters.category,
         filters: state.filters
-
     }
 };
 
