@@ -8,11 +8,14 @@ import {getItem} from "../../actions/itemsAction";
 class ItemPage extends Component{
     componentDidMount() {
         this.props.getItem(this.props.match.params.id);
-
     }
     render(){
         const {item} = this.props.item;
-        return <div className='bg-primary  mt-5 pt-2'>{item.name}</div>
+        return <div className='item  mt-5 pt-2'>
+
+            {item.name}
+
+            </div>
     }
 }
 

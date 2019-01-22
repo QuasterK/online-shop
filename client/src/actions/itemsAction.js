@@ -3,7 +3,6 @@ import axios from "axios/index";
 
 //get all items
 export const getItems = () => dispatch => {
-
     axios({
         method:'get',
         url:'api/item/get'
@@ -24,7 +23,10 @@ export const getItems = () => dispatch => {
 
 //get single item to display on page
 export const getItem = id => dispatch => {
-    axios.get(`api/item/get/${id}`)
+    axios({
+        method: 'get',
+        url:`/api/item/get/${id}`
+    })
         .then(res =>
             dispatch({
                 type: GET_ITEM,
@@ -33,7 +35,7 @@ export const getItem = id => dispatch => {
         )
         .catch(err =>
             dispatch({
-                type:GET_ITEMS,
+                type:GET_ITEM,
                 payload: err
             })
         )

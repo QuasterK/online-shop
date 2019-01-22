@@ -39,7 +39,7 @@ class App extends Component {
                   <Route path='/login' component={Login}/>
                   <Route path='/cart' component={Cart}/>
                   <Route path='/filters' component={Filters}/>
-                  <Route path='/:id' component={ItemPage}/>
+                  <Route path='/get/:id' component={ItemPage}/>
                   <Footer/>
               </div>
             </Router>

@@ -15,12 +15,12 @@ router.get('/get', function (req, res) {
         .catch(err => res.status(404).json({noitems: 'no items for sale'}))
 });
 
-// @route   GET api/item/get
+// @route   GET api/item/get/id
 // @desc    getting singe item
 // @access  Public
 
 router.get('/get/:id', function (req, res) {
-    Item.findOne({_id: req.params.id})
+    Item.findById(req.params.id)
         .then(item => res.json(item))
         .catch(err => res.status(404).json({noitem: 'no such item for sale'}))
 });
