@@ -1,4 +1,5 @@
-module.exports = {
-    mongodb : 'mongodb://Quaster:onlineshop1@ds149754.mlab.com:49754/online-shop',
-    secretOrKey: '1xWoP/23]wsfvDPW76219as.MN'
+if (process.env.NODE_ENV === 'production') {
+  module.exports = require('./keys_prod');
+} else {
+  module.exports = require('./keys_dev');
 }
