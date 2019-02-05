@@ -7,14 +7,15 @@ import PropTypes from 'prop-types';
 class Item extends Component{
     constructor(props){
         super(props);
-        const {name, price, category, brand, id} = this.props;
+        const {name, price, category, brand, id, color} = this.props;
         this.state={
             name,
             img: name,
             price,
             category,
             brand,
-            id
+            id,
+            color
         }
     }
     addToCart = e =>{
@@ -31,7 +32,7 @@ class Item extends Component{
 
     render(){
 
-        const {name, price, brand, img, id} = this.state;
+        const {name, price, brand, img, id, color, category} = this.state;
         const image = require('../../images/' + img + '/1.jpg');
         const {isAuth} = this.props.auth;
 
@@ -57,7 +58,14 @@ class Item extends Component{
                     <p className='col m-0 p-0 text-center d-block font-weight-bold'>{name}</p>
                 </div>
                 <div className="row">
-                    <p className='col m-0 p-0 text-center d-block font-weight-bolder'>{brand}</p>
+                    <p className='col m-0 p-0 text-center d-block font-weight-bold'> Category: {category}</p>
+                </div>
+                <div className="row">
+                    <p className='col m-0 p-0 text-center d-block font-weight-bold'> Color: {color}</p>
+                </div>
+
+                <div className="row">
+                    <p className='col m-0 p-0 text-center d-block font-weight-bolder'>Brand: {brand}</p>
                 </div>
                 <div className="row">
                     <p className='col m-0 p-0 text-center d-block text-danger font-weight-bold'>Price: {price} $</p>

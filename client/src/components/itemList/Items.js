@@ -21,7 +21,8 @@ class Landing extends Component{
                                  price={item.price}
                                  category={ item.category}
                                  brand={item.brand}
-                                 id={item._id}/>
+                                 id={item._id}
+                                 color={item.color}/>
                 })}
             </div>
         );
