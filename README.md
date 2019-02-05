@@ -1,13 +1,11 @@
+# [DEMO](https://blooming-cove-16289.herokuapp.com/)
 # online-shop
-## stack:
--Node.js,
--Express.js,
--Mongo.db,
--React,
--Redux
+Full stack E-Commerce shop where you can filter watches by several categories.If you want add item to a card you must loggin to website or create an account, that is store in db with hashed password. 
 
-## DEMO:
-https://blooming-cove-16289.herokuapp.com/
+## Technologies used
+* Node.js,
+* Express.js,
+* Mongo.db,
+* React,
+* Redux
 
-##acknowledge: 
-this site is still under construction.
